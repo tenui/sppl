@@ -1,0 +1,17 @@
+<table>
+  <tr>
+    <th>Username</th>
+    <th class="actions">Actions</th>
+  </tr>
+<% @users.each do |user| %>
+  <tr>
+    <td><%= user.username %></td>
+    <td class="actions">
+      <%= link_to "Change", edit_user_path(user) %>&nbsp;/
+      <%= link_to "Remove", user, :confirm => "Are you sure?", :method => :delete %>
+    </td>
+  </tr>
+<% end %>
+</table>
+<br />
+<%= link_to 'New User', new_user_path %>

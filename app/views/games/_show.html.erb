@@ -1,0 +1,36 @@
+<div id="ViewerCompressed">
+  <table cellpadding="5" cellspacing="3">
+    <tr>
+      <th align="right">Match:</th>
+      <td><%= link_to @game.match.match_date, match_path(@game.match) %></td>
+    </tr>
+    <tr>
+      <th align="right">Game #</th>
+      <td><%= @game.ordinal %></td>
+    </tr>
+    <tr>
+      <th align="right">Players:</th>
+      <td>
+        <% if @game.players.empty? %>
+        <i>None</i>
+      <% else %>
+        <table cellpadding="3" cellspacing="3">
+          <% @game.results.each do |result| %>
+            <tr>
+              <td><%= result.place %>.</td>
+              <td><%= link_to "#{result.player}", player_path(result.player) %></td>
+              <td>(<%= result.points %>)</td>
+            </tr>
+          <% end %>
+        </table>
+        <% end %>
+      </td>
+    </tr>
+<% if changes_allowed? %>
+    <tr>
+      <th>Actions</th>
+      <td><%= link_to "Choose Players", :action => :choose_players, :id => @game.id %></td>
+    </tr>
+<% end %>
+  </table>
+</div>

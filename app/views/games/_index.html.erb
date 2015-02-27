@@ -1,0 +1,44 @@
+<table>
+  <tr>
+    <th>Match</th>
+    <th>Game #</th>
+    <th>Player Count</th>
+<% if changes_allowed? %>
+    <th class="actions">Actions</th>
+<% end %>
+  </tr>
+<%
+  @matches.each do |match|
+    if !match.games.empty?
+%>
+  <tr>
+    <td rowspan="<%= match.games.count %>"><%= link_to "#{match}", match %></td>
+<%
+      match.games.sort.each { |game| 
+%>
+    <td class="numeric"><%= link_to "#{game.ordinal}", game %></td>
+    <td class="numeric"><%= game.players.count %></td>
+<% if changes_allowed? %>
+    <td class="actions">
+      <%= link_to "Change", edit_game_path(game) %>&nbsp;/
+      <%= link_to "Remove", game, :confirm => "Are you sure?", :method => :delete %>
+    </td>
+<% end %>
+  </tr>
+<%
+      }
+    else
+%>
+  <tr>
+    <td><%= link_to "#{match}", match %></td>
+    <td colspan="4">No Games</td>
+  </tr>
+<%
+    end 
+  end
+%>
+</table>
+<p/>
+<% if changes_allowed? %>
+<%= link_to 'Add a New Game', new_game_path %>
+<% end %>

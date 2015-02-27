@@ -1,0 +1,6 @@
+<div id="Editor">
+  <h3>Editing <%= params[:controller].singularize.titleize %> '<%= resource.to_param %>'</h3>
+  <%= render :partial => 'form' %>
+  <%= link_to 'Show', resource %> |
+  <%= link_to 'View All', {:controller => params[:controller], :action => :index} %>
+</div>

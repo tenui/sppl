@@ -1,0 +1,6 @@
+<div id="Editor">
+  <h1>Creating a <%= params[:controller].singularize.titleize %></h1>
+  <p id="notice"><%= notice %></p>
+  <%= render :partial => 'form' %>
+  <%= link_to 'Cancel', {:controller => params[:controller], :action => :index} %>
+</div>

@@ -1,0 +1,57 @@
+<h4>Details</h4>
+<table>
+  <tr>
+    <th>Player</th>
+    <td><%= @player.full_name %></td>
+  </tr>
+  <tr>
+    <th>Email</th>
+    <td><%= @player.email %></td>
+  </tr>
+  <tr>
+    <th>Phone</th>
+    <td><%= @player.phone %></td>
+  </tr>
+</table>
+<p/>
+<h4>Games Played</h4>
+<% if @player.season_games(@season.id).empty? %>
+<i>None</i>
+<% else %>
+<h5>Scoring</h5>
+<table>
+  <tr>
+    <th>Match</th>
+    <th>Game</th>
+    <th>Place</th>
+    <th>Points</th>
+  </tr>
+<%   for result in @player.scoring_results(@season.id) %>
+  <tr>
+    <td><%= link_to "#{result.game.match}", match_path(result.game.match) %></td>
+    <td class="numeric"><%= link_to "#{result.game.ordinal}", game_path(result.game) %></td>
+    <td class="numeric"><%= result.place %></td>
+    <td class="numeric"><%= result.points %></td>
+  </tr>
+<%   end %>
+</table>
+
+<h5>Non-Scoring</h5>
+<table>
+  <tr>
+    <th>Match</th>
+    <th>Game</th>
+    <th>Place</th>
+    <th>Points</th>
+  </tr>
+<%   for result in @player.non_scoring_results(@season.id) %>
+  <tr>
+    <td><%= link_to "#{result.game.match}", match_path(result.game.match) %></td>
+    <td class="numeric"><%= link_to "#{result.game.ordinal}", game_path(result.game) %></td>
+    <td class="numeric"><%= result.place %></td>
+    <td class="numeric"><%= result.points %></td>
+  </tr>
+<%   end %>
+</table>
+<% end %>
+<p/>

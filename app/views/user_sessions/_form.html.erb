@@ -1,0 +1,14 @@
+<%= form_for(@user_session) do |f| %>
+  <div class="field">
+    <%= f.label "Name" %><br />
+    <%= f.text_field :username, :id => "username", :tabindex => "1" %>
+  </div>
+  <div class="field">
+    <%= f.label :password %><br />
+    <%= f.password_field :password %>
+  </div>
+  <div class="actions">
+    <%= f.submit :value => "Login" %>
+  </div>
+<% end %>
+<%= set_focus "username" %>

@@ -1,0 +1,40 @@
+<div id="ViewerCompressed">
+  <%= form_for(@game, :action => :update, :id => @game.id) do |f| %>
+    <table>
+      <tr>
+        <th align="right">Match:</th>
+        <td><%= link_to @game.match.match_date, match_path(@game.match) %></td>
+      </tr>
+      <tr>
+        <th align="right">Game #</th>
+        <td><%= @game.ordinal %></td>
+      </tr>
+      <tr>
+        <th align="right">Results:</th>
+        <td>
+          <% if @game.players.empty? %>
+            <i>None</i>
+          <% else %>
+            <table>
+              <% f.fields_for :results do |result_form| %>
+                <tr>
+                  <td><%= "#{result_form.object.place}." -%></td>
+                  <td><%= result_form.collection_select :player_id, @game.players, :id, :to_s, :selected => result_form.object.player.id -%></td>
+                </tr>
+              <% end %>
+            </table>
+          <% end %>
+        </td>
+      </tr>
+      <% if changes_allowed? %>
+        <tr>
+          <th>Actions</th>
+          <td><%= link_to "Choose Players", :action => :choose_players, :id => @game.id %></td>
+        </tr>
+      <% end %>
+    </table>
+    <%= f.submit "Save" if changes_allowed? %>
+  <% end %>
+</div>
+<%= link_to 'Show', resource %> |
+<%= link_to 'View All', {:controller => params[:controller], :action => :index} %>

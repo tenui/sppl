@@ -1,0 +1,8 @@
+<div id="ViewerCompressed">
+  <h3>Showing a <%= params[:controller].singularize.titleize %></h3>
+  <p id="notice"><%= notice %></p>
+  <%= render :partial => "show" %> 
+<% if changes_allowed? %>
+  <%= link_to "Edit", edit_resource_path(@season) %>
+<% end %>
+</div>

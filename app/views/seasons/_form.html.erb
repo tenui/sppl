@@ -11,10 +11,21 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
+  <table>
+    <tr>
+      <th><%= f.label :ordinal %></th>
+      <td><%= f.text_field :ordinal %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :start_year %></th>
+      <td><%= f.text_field :start_year %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :stop_year %></th>
+      <td><%= f.text_field :stop_year %></td>
+    </tr>
+  </table>
+
   <div class="actions">
     <%= f.submit %>
   </div>

@@ -1,0 +1,40 @@
+<table>
+  <tr>
+    <th>Season</th>
+    <th>Match</th>
+<% if changes_allowed? %>
+    <th class="actions">Actions</th>
+  </tr>
+<% end %>
+<%
+  if !@matches.empty?
+%>
+  <tr>
+  <td rowspan="<%= @matches.count %>"><%= link_to @season, season_path(@season.id) -%></td>
+<%
+      @matches.each { |match| 
+%>
+    <td><%= link_to "#{match}", match %></td>
+<% if changes_allowed? %>
+    <td class="actions">
+      <%= link_to "Change", edit_match_path(match) %>&nbsp;/
+      <%= link_to "Remove", match, :confirm => "Are you sure?", :method => :delete %>
+    </td>
+<% end %>
+  </tr>
+<%
+      }
+    else
+%>
+  <tr>
+    <td><%= @season %></td>
+    <td colspan="4">No Matches</td>
+  </tr>
+<%
+  end
+%>
+</table>
+<p/>
+<% if changes_allowed? %>
+<%= link_to "Add a New Match", new_match_path %>
+<% end %>

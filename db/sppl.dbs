@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="PostgreSQL" database="PostgreSQL" >
+	<schema name="public" catalogname="sppl_dev" schemaname="public" defo="y" >
+		<table name="games" >
+			<column name="id" type="serial" length="4" jt="4" mandatory="y" />
+			<column name="created_at" type="timestamp" length="8" decimal="6" jt="93" />
+			<column name="match_id" type="int4" length="4" jt="4" />
+			<column name="ordinal" type="int4" length="4" jt="4" />
+			<column name="updated_at" type="timestamp" length="8" decimal="6" jt="93" />
+			<index name="games_pkey" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+		</table>
+		<table name="matches" >
+			<column name="id" type="serial" length="4" jt="4" mandatory="y" />
+			<column name="created_at" type="timestamp" length="8" decimal="6" jt="93" />
+			<column name="match_date" type="date" length="4" jt="91" />
+			<column name="season_id" type="int4" length="4" jt="4" />
+			<column name="updated_at" type="timestamp" length="8" decimal="6" jt="93" />
+			<index name="matches_pkey" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+		</table>
+		<table name="players" >
+			<column name="id" type="serial" length="4" jt="4" mandatory="y" />
+			<column name="created_at" type="timestamp" length="8" decimal="6" jt="93" />
+			<column name="email" type="varchar" length="255" jt="12" />
+			<column name="first_name" type="varchar" length="255" jt="12" />
+			<column name="last_name" type="varchar" length="255" jt="12" />
+			<column name="phone" type="varchar" length="255" jt="12" />
+			<column name="updated_at" type="timestamp" length="8" decimal="6" jt="93" />
+			<index name="players_pkey" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+		</table>
+		<table name="results" >
+			<column name="id" type="serial" length="4" jt="4" mandatory="y" />
+			<column name="created_at" type="timestamp" length="8" decimal="6" jt="93" />
+			<column name="game_id" type="int4" length="4" jt="4" />
+			<column name="place" type="int4" length="4" jt="4" />
+			<column name="player_id" type="int4" length="4" jt="4" />
+			<column name="updated_at" type="timestamp" length="8" decimal="6" jt="93" />
+			<index name="game_players_pkey" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+			<index name="ak_game_players" unique="NORMAL" >
+				<column name="game_id" />
+				<column name="player_id" />
+			</index>
+		</table>
+		<table name="schema_migrations" >
+			<column name="version" type="varchar" length="255" jt="12" mandatory="y" />
+			<index name="unique_schema_migrations" unique="UNIQUE" >
+				<column name="version" />
+			</index>
+		</table>
+		<table name="seasons" >
+			<column name="id" type="serial" length="4" jt="4" mandatory="y" />
+			<column name="created_at" type="timestamp" length="8" decimal="6" jt="93" />
+			<column name="ordinal" type="varchar" length="255" jt="12" />
+			<column name="start_year" type="int4" length="4" jt="4" />
+			<column name="stop_year" type="int4" length="4" jt="4" />
+			<column name="updated_at" type="timestamp" length="8" decimal="6" jt="93" />
+			<index name="seasons_pkey" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+		</table>
+		<table name="users" >
+			<column name="id" type="serial" length="4" jt="4" mandatory="y" />
+			<column name="created_at" type="timestamp" length="8" decimal="6" jt="93" />
+			<column name="crypted_password" type="varchar" length="255" jt="12" />
+			<column name="password_salt" type="varchar" length="255" jt="12" />
+			<column name="persistence_token" type="varchar" length="255" jt="12" />
+			<column name="updated_at" type="timestamp" length="8" decimal="6" jt="93" />
+			<column name="username" type="varchar" length="255" jt="12" />
+			<index name="users_pkey" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+		</table>
+		<sequence name="games_id_seq" start="1" />
+		<sequence name="users_id_seq" start="1" />
+		<sequence name="matches_id_seq" start="1" />
+		<sequence name="players_id_seq" start="1" />
+		<sequence name="seasons_id_seq" start="1" />
+		<sequence name="game_players_id_seq" start="1" />
+	</schema>
+	<connector name="PostgreSQL" database="PostgreSQL" driver_class="org.postgresql.Driver" driver_jar="postgresql-8.4-701.jdbc3.jar" host="localhost" port="5432" instance="sppl_dev" user="daryl" passwd="cmV2ejFsbGE=" schema_mapping="" />
+	<layout name="public" show_relation_columns="y" >
+		<entity schema="public" name="seasons" x="56" y="42" />
+		<entity schema="public" name="results" x="448" y="252" />
+		<entity schema="public" name="players" x="630" y="252" />
+		<entity schema="public" name="users" x="42" y="448" />
+		<entity schema="public" name="matches" x="252" y="42" />
+		<entity schema="public" name="schema_migrations" x="252" y="532" />
+		<entity schema="public" name="games" x="252" y="252" />
+	</layout>
+</project>

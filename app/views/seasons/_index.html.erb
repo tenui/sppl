@@ -1,0 +1,29 @@
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Start Year</th>
+    <th>Stop Year</th>
+    <th># of Matches</th>
+<% if changes_allowed? %>
+    <th class="actions">Actions</th>
+<% end %>
+  </tr>
+<% @seasons.each do |season| %>
+  <tr>
+    <td><%= link_to "#{season}", season %></td>
+    <td class="numeric"><%= season.start_year %></td>
+    <td class="numeric"><%= season.stop_year %></td>
+    <td class="numeric"><%= season.matches.count %></td>
+<% if changes_allowed? %>
+    <td class="actions">
+      <%= link_to "Change", edit_season_path(season) %>&nbsp;/
+      <%= link_to "Remove", season, :confirm => "Are you sure?", :method => :delete %>
+    </td>
+<% end %>
+  </tr>
+<% end %>
+</table>
+<p/>
+<% if changes_allowed? %>
+<%= link_to "Add a New Season", new_season_path %>
+<% end %>

@@ -1,0 +1,28 @@
+<%= form_for(@match) do |f| %>
+  <% if @match.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@match.errors.count, "error") %> prohibited this Match from being saved:</h2>
+
+      <ul>
+      <% @match.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <table>
+    <tr>
+      <th><%= f.label :match_date %></th>
+      <td><%= f.text_field :match_date %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :season %></th>
+      <td><%= f.collection_select(:season_id, Season.all, :id, :name)%></td>
+    </tr>
+  </table>
+  <p/>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

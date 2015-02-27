@@ -1,0 +1,25 @@
+<table border="1" cellpadding="5" cellspacing="3">
+  <tr>
+    <th align="right">Date:</th>
+    <td><%= @match.match_date %></td>
+  </tr>
+  <tr>
+    <th align="right">Season:</th>
+    <td><%= link_to @match.season.name, season_path(@match.season) %></td>
+  </tr>
+  <tr>
+    <th align="right">Games:</th>
+    <td>
+      <% for game in @match.games %>
+        <%= link_to "#{game}", game_path(game) %><br/>
+      <% end %>
+      <% if @match.games.empty? %><i>None</i><% end %>
+    </td>
+  </tr>
+<% if changes_allowed? %>
+  <tr>
+    <th>Actions</th>
+    <td><%= link_to "Add a Game", :action => 'new_game', :id => @match.id %></td>
+  </tr>
+<% end %>
+</table>

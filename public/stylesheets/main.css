@@ -1,0 +1,282 @@
+#BottomBar {
+  border         : 1px solid;
+  border-color   : #4E56C2;
+  color          : #4E56C2;
+  font-family    : Tahoma, Verdana, Arial, Helvetica, sans-serif;
+  font-size      : 50%;
+  margin         : 150px auto;
+  padding        : 1px 1px 1px 1px;
+  position       : relative; right: auto; bottom: 1px; left: auto;
+  text-align     : center;
+  width          : 800px;
+}
+
+#Content {
+  center;
+  display        : block;
+  font-family    : Tahoma, Verdana, Arial, Helvetica, sans-serif;
+  margin         : 0px auto;
+  padding        : 3px 3px 3px 3px;
+  width          : 800px;
+}
+
+#Editor table {
+	border        : none;
+  margin-top    : 10px;
+  margin-bottom : 10px;
+	width         : 100%;
+}
+
+#Editor td {
+  border       : 1px, solid;
+	border-left  : 0px;
+	border-right : 0px;
+  padding      : 5px 5px 5px 5px;
+	text-align   : left;
+}
+
+#Editor td.actions {
+}
+
+#Editor td.noedit {
+	background-color : lightblue;
+	color            : black;
+}
+
+#Editor th {
+	background-color : #EE8A52;
+	border           : 0px;
+  padding          : 3px;
+  text-align       : right;
+  width            : 15%;
+}
+
+#Header {
+  background-color : #FFFFFF;
+  color            : #4E56C2;
+  margin           : 0px auto;
+  width            : 800px;
+}
+
+#Inspector table {
+   border        : none;
+   margin-top    : 10px;
+   margin-bottom : 10px;
+}
+
+#Inspector td {
+   border       : 1px solid;
+	border-right : 0px;
+	border-top   : 0px;
+   padding      : 5px 5px 5px 5px;
+}
+
+#Inspector td.actions {
+   border  : 1px;
+}
+
+#Inspector th {
+   border     : none;
+   padding    : 5px 10px 5px 5px;
+   text-align : right;
+}
+
+#ResourceMenu {
+  background-color : #4E56C2;
+  padding-top      : 5px;
+  padding-left     : 5px;
+  padding-bottom   : 5px;
+}
+
+#ResourceMenu a {
+  color           : #FFFFFF;
+  margin-right    : 15px;
+  padding-top     : 3px;
+  padding-right   : 3px;
+  padding-bottom  : 3px;
+  padding-left    : 3px;
+  text-decoration : none;
+}
+
+#ResourceMenu a.selected {
+  background      : -webkit-linear-gradient(top, #EE8A52, white 40%);
+  background      : -moz-linear-gradient(top, #EE8A52, white 40%);
+  color           : #4E56C2;
+  font-weight     : bold;
+  margin-right    : 15px;
+  padding         : 11px 3px 11px 3px;
+  text-decoration : none;
+}
+
+#SubResourceMenu {
+	border         : 1px solid;
+	border-color   : #4E56C2;	
+	border-left    : 1px;
+	border-right   : 1px;
+	border-top     : 0px;
+	font-family    : Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-weight    : bold;
+	margin         : 1px 1px 1px 1px;
+	padding-top    : 3px;
+	padding-left   : 3px;
+	padding-bottom : 3px;
+	vertical-align : middle;
+}
+
+#SubResourceMenu a, 
+#SubResourceMenu a:visited,
+#SubResourceMenu a:hover 
+{
+  color           : #4E56C2;
+  text-decoration : none;
+}
+
+#SubResourceMenu img {
+  height         : 20px;
+  margin-right   : 5px;
+  vertical-align : middle;
+  width          : 25px;
+}
+
+#SystemError {
+  background-color : #f0f0f0;
+  border           : 2px solid red;
+  margin-bottom    : 20px;
+  padding          : 7px;
+  padding-bottom   : 12px;
+  width            : 90%;
+}
+
+#TertiaryResourceMenu {
+	border         : 1px solid;
+	border-color   : #4E56C2;	
+	border-left    : 1px;
+	border-right   : 1px;
+	border-top     : 0px;
+	font-family    : Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-weight    : bold;
+	margin         : 1px 1px 1px 1px;
+	padding-top    : 3px;
+	padding-left   : 3px;
+	padding-bottom : 3px;
+	vertical-align : middle;
+}
+
+#TertiaryResourceMenu a, 
+#TertiaryResourceMenu a:visited,
+#TertiaryResourceMenu a:hover 
+{
+  color           : #4E56C2;
+  text-decoration : none;
+}
+
+#TertiaryResourceMenu img {
+  height         : 20px;
+  margin-right   : 5px;
+  vertical-align : middle;
+  width          : 25px;
+}
+
+#TopBar {
+  font-family    : Tahoma, Verdana, Arial, Helvetica, sans-serif;
+  margin-top     : 0;
+  margin-bottom  : 0px;
+  padding-top    : 3px;
+  padding-left   : 3px;
+  padding-bottom : 3px;
+  text-align     : center;
+  vertical-align : middle;
+}
+
+#TopBar a, 
+#TopBar a:visited,
+#TopBar a:hover 
+{
+  color           : #4E56C2;
+  text-decoration : none;
+}
+
+#TopBar img {
+  margin-right   : 5px;
+  vertical-align : middle;
+}
+
+
+#Viewer table {
+   background-color : white;
+   border           : 0px;
+   margin-top       : 8px;
+   margin-bottom    : 8px;
+   width            : 100%;
+}
+
+#Viewer td {
+  border        : 1px ridge;
+  padding       : 5px 5px 5px 5px;
+	text-align    : left;
+}
+
+#Viewer td.actions {
+  text-align : center;
+	width      : 20%;
+}
+
+#Viewer td.numeric {
+  text-align : right;
+	width      : 20%;
+}
+
+#Viewer td.link {
+  text-align : center;
+}
+
+#Viewer th {
+  background-color : #EE8A52;
+  border           : 0px;
+  padding          : 3px 3px 3px 3px;
+  text-align       : left;
+}
+
+#Viewer th.actions {
+  text-align : center;
+	width      : 20%;
+}
+
+
+#ViewerCompressed table {
+  background-color : white;
+  border           : 0px ridge;
+  margin-top       : 8px;
+  margin-bottom    : 8px;
+}
+
+#ViewerCompressed td {
+  border        : 0px ridge;
+  padding       : 3px 3px 3px 3px;
+	text-align    : left;
+}
+
+#ViewerCompressed td.actions {
+   text-align : center;
+	width      : 20%;
+}
+
+#ViewerCompressed td.link {
+   text-align : center;
+}
+
+#ViewerCompressed td.numeric {
+   text-align : right;
+}
+
+#ViewerCompressed th {
+   background-color : #EE8A52;
+   border           : 0px;
+   padding          : 3px 3px 3px 3px;
+   text-align       : left;
+}
+
+#ViewerCompressed th.actions {
+   text-align : center;
+	width      : 20%;
+}
